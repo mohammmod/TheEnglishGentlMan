@@ -5,13 +5,10 @@ import at.refugeescode.englishgentelman.Model.Monoloc;
 import java.util.Optional;
 
 public class NewsPaper {
+    public Optional<NewsPaper> newsPaper(){
+        Optional<NewsPaper> newsPaper = Optional.of(new NewsPaper());
+        return newsPaper;
 
-    public boolean read(Optional<Monoloc> monoloc) {
-        if (monoloc.isPresent()){
-            return true ;
-        }
-        else{
-            return false;
-        }
     }
+
 }

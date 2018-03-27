@@ -9,14 +9,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EnglishMan {
+    private Monoloc monoloc;
+    private Lighter lighter;
+
+    public EnglishMan(Monoloc monoloc, Lighter lighter){
+        this.lighter= lighter;
+        this.monoloc= monoloc;
+    }
+
     public void EnglishManDay() {
-        Monoloc monoloc = new Monoloc();
         NewsPaper newspaper = new NewsPaper();
         Cigar cigar = new Cigar();
-        Lighter lighter = new Lighter();
         Asker asker = new Asker();
-
-        boolean read = newspaper.read(monoloc.getMonoloc());
+        boolean read = monoloc.read(newspaper);
+        lighter.lightandSmock(cigar);
         boolean smoke = cigar.smoke(lighter.lightIt());
 
         String englishManFeeling = asker.askTheEnglishManIfHeHadGoodDay(read, smoke);
